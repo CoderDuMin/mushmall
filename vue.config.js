@@ -1,4 +1,4 @@
-module.export = {
+module.exports = {
   configureWebpack:{
     resolve:{
      alias:{//配置别名
