@@ -21,7 +21,7 @@ export default {
   }
   .left,.right{
     width: 60px;
-  }
+  } 
   .center{
     flex: 1;
     text-align: center;
