@@ -2,12 +2,14 @@
   <div id="home">
     <nav-bar class="home-nav"><div slot="center">魔姑街</div></nav-bar>
     <home-swiper :banners='banners'></home-swiper>
+    <home-recommend-view :recommends='recommends'></home-recommend-view>
   </div>
 </template>
 
 <script>
 import HomeSwiper from './childComps/HomeSwiper'
 import NavBar from 'components/common/navbar/NavBar'
+import HomeRecommendView from './childComps/HomeRecommendView'
 
 import {getHomeMultidata} from 'network/home'
 
@@ -20,7 +22,8 @@ export default {
   },
   components:{
     NavBar,
-    HomeSwiper
+    HomeSwiper,
+    HomeRecommendView
    
   },
   created() {
