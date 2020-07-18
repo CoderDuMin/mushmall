@@ -24,6 +24,7 @@ export default {
   methods: {
     changeCurrent(index){
       this.currentindex=index;
+      this.$emit('tabClick',index);
     }
   },
 }
