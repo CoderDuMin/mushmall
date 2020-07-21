@@ -1,7 +1,12 @@
 <template>
   <div id="home">
         <nav-bar class="home-nav"><div slot="center">魔姑街</div></nav-bar>
-        <scroll class="content" ref="scroll" :probe-type="3" @scroll="contentScroll">
+        <scroll class="content" 
+                ref="scroll" 
+                :probe-type="3" 
+                @scroll="contentScroll" 
+                @pullingUp="loadMore"
+                :pull-up-load="true">
           <home-swiper :banners='banners'></home-swiper>
           <home-recommend-view :recommends='recommends'></home-recommend-view>
           <home-feature-view/>
@@ -64,6 +69,9 @@ export default {
     this.HomeGoods('new');
     this.HomeGoods('sell');
   },
+  updated() {
+    this.$refs.scroll.scroll.refresh();
+  },
   methods: {
     /*
     事件监听相关的方法
@@ -89,6 +97,11 @@ export default {
     contentScroll(position){
       this.isShowBackTop = (-position.y)>1000 
     },
+    loadMore(){
+      console.log('上拉加载更多');
+      this.HomeGoods(this.currentType);
+      this.$refs.scroll.finishPullUp();
+    },
     /*
     网络请求相关的方法
     */
@@ -104,7 +117,7 @@ export default {
       console.log(page)
       getHomeGoods(type,page).then(res =>{
         this.goods[type].list.push(...res.data.list);
-        this.goods[type].page += 1;
+        this.goods[type].page += 1;    
       })
     }
   },
@@ -127,7 +140,7 @@ export default {
     z-index: 10;
   }
   .tab-control{
-    position: sticky;
+    /* position: sticky; */
     top: 44px;
     background: #fff;
     z-index: 9;
