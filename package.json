@@ -9,6 +9,7 @@
   "dependencies": {
     "@better-scroll/core": "^2.0.0-beta.10",
     "axios": "^0.19.2",
+    "better-scroll": "^2.0.0-beta.10",
     "core-js": "^3.6.5",
     "install": "^0.13.0",
     "npm": "^6.14.6",
