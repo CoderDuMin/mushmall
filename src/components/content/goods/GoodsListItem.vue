@@ -1,7 +1,6 @@
 <template>
-  <div class="goods-item">
-    <a :href="goodsItem.link">
-    <img :src="goodsItem.show.img" alt="">  </a>
+  <div class="goods-item" @click="itemClick">
+    <img :src="goodsItem.show.img" alt="">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -20,7 +19,13 @@ export default {
         return {}
       }
     }
-  }
+  },
+  methods: {
+    itemClick(){
+      console.log('跳到详情页')
+      this.$router.push('/detail/'+this.goodsItem.iid)
+    }
+  },
 }
 </script>
 
