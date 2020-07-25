@@ -12,12 +12,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .nav-bar{
     display: flex;
     line-height: 44px;
     height: 44px;
-    box-shadow: 0,1px,1px,rgba(100,100,100,0.1);
+    box-shadow: 0,1px,1px,rgba(73, 73, 73, 0.2);
+     /* box-shadow: 0,3px,3px,#888888; */
   }
   .left,.right{
     width: 60px;

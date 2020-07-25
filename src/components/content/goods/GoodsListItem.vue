@@ -23,13 +23,15 @@ export default {
   methods: {
     itemClick(){
       console.log('跳到详情页')
-      this.$router.push('/detail/'+this.goodsItem.iid)
+      this.$router.push({path:'/detail',query:{
+        iid:this.goodsItem.iid
+      }})
     }
   },
 }
 </script>
 
-<style>
+<style scoped>
  .goods-item {
     padding-bottom: 40px;
     position: relative;
