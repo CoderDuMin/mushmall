@@ -20,7 +20,7 @@ export default {
 
 <style>
   @import 'assets/css/base.css';
-  .main-tab-bar{
-    /* z-index: 10; */
-  }
+  /* .main-tab-bar{
+    z-index: 10;
+  } */
 </style>

@@ -9,6 +9,12 @@ export function getDetail(iid){
   })
 }
 
+export function getRecommend(){
+  return request({
+    url:'/recommend'
+  })
+}
+
 //ES6中使用类
 export class Goods{
   constructor(itemInfo,columns,services){
