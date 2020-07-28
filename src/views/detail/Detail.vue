@@ -12,7 +12,7 @@
       <goods-list :goods="recommends"  ref="recommends" />
     </scroll>
     <back-top @click.native="backTop" v-show="isShowBackTop"/>
-    <detail-bottom-bar/>  
+    <detail-bottom-bar @addToCart="addToCart"/>  
   </div>
 </template>
 
@@ -69,6 +69,7 @@ export default {
 
     //2,请求详情数据
     getDetail(this.iid).then(res => {
+      console.log(res)
       //1,获取数据
       const data = res.result;
       // console.log(data)
@@ -160,6 +161,18 @@ export default {
 
       //3，是否显示回到顶部
       this.isShowBackTop = - position.y > 1000;
+    },
+    addToCart(){
+      //1，获取购物车需要展示的信息
+      const product = {}
+      product.image = this.topImages[0];
+      product.title = this.goodsInfo.title;
+      product.desc = this.goodsInfo.desc;
+      product.price = this.goodsInfo.lowNowPrice;
+      product.iid = this.iid;
+      //2,将商品添加到购物车
+      // this.$store.commit('addCart',product);
+      this.$store.dispatch('addCart',product)
     }
   },
 
