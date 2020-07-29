@@ -13,6 +13,7 @@
     </scroll>
     <back-top @click.native="backTop" v-show="isShowBackTop"/>
     <detail-bottom-bar @addToCart="addToCart"/>  
+    <!-- <toast :message="message" :show="show" /> -->
   </div>
 </template>
 
@@ -29,8 +30,11 @@ import DetailBottomBar from './childComps/DetailBottomBar'
 import BackTop from 'components/content/backTop/BackTop'
 import GoodsList from 'components/content/goods/GoodsList'
 import Scroll from 'components/common/scroll/Scroll'
+// import Toast from 'components/common/toast/Toast'
 
 import {getDetail,Goods,getRecommend} from 'network/detail'
+
+import {mapActions} from 'vuex'
 
 export default {
   name:'Detail',
@@ -45,7 +49,7 @@ export default {
     CommentInfo,
     GoodsList,
     DetailBottomBar,
-    BackTop
+    BackTop,
   },
   data() {
     return {
@@ -59,7 +63,9 @@ export default {
       recommends:[],
       themeTopYs:[],
       currentIndex:0,
-      isShowBackTop:false
+      isShowBackTop:false,
+      message:'',
+      show:false
     }
   },
   created() {
@@ -130,6 +136,7 @@ export default {
     },500)
   },
   methods: {
+    ...mapActions(['addCart']),
     backTop(){
       this.$refs.detailScroll.scrollTo(0,0,500)
     },
@@ -172,15 +179,23 @@ export default {
       product.iid = this.iid;
       //2,将商品添加到购物车
       // this.$store.commit('addCart',product);
-      this.$store.dispatch('addCart',product)
+      this.addCart(product).then(res =>{
+        //  this.show = true;
+        //  this.message = '添加购物车成功';
+        //  setTimeout(()=>{
+        //    this.show = false;
+        //    this.message = ''
+        //  },1000)
+        // })
+          this.$toast.show('已添加到购物车')
+        })
     }
-  },
-
+  }
 }
 </script>
 
 <style scoped>
-  #detail{
+  #detail{ 
     height: 100vh;
     background-color: #fff;
     position: relative;

@@ -6,10 +6,12 @@
     <scroll class="content" ref="cartScroll">
       <cart-list :cart-list="lists" />
     </scroll>
+    <cart-bottom-bar />
   </div>
 </template>
 
 <script>
+import CartBottomBar from './childComps/CartBottomBar'
 import CartList from './childComps/CartList'
 
 import Scroll from 'components/common/scroll/Scroll'
@@ -22,7 +24,8 @@ export default {
   components:{
     NavBar,
     CartList,
-    Scroll
+    Scroll,
+    CartBottomBar
   },
   computed: {
     //两种语法
@@ -54,7 +57,7 @@ export default {
     top: 44px;
     left: 0;
     right: 0;
-    bottom: 49px;
+    bottom: 89px;
     overflow: hidden;
   }
 </style>
