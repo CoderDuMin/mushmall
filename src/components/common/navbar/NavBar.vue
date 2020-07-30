@@ -18,7 +18,7 @@ export default {
     line-height: 44px;
     height: 44px;
     box-shadow: 0 1px 1px rgba(73, 73, 73, 0.2);
-    font-size: 18px;
+    font-size: 17px;
      /* box-shadow: 0,3px,3px,#888888; */
   }
   .left,.right{

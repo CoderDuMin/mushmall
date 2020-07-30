@@ -25,7 +25,19 @@ export default {
   .goods{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    
+    justify-content: space-around;
+    -webkit-justify-content: space-evenly;
+    -ms-justify-content:space-around;
+   /* justify-content: space-between; 			
+    &:before,&:after { 			
+      content: ''; 			
+      display: block; 		
+    } */
   }
+  /* .goods::before,.goods::after{
+    content: '';
+    display: block;
+  } */
   
 </style>

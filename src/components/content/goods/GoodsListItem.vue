@@ -37,6 +37,11 @@ export default {
 </script>
 
 <style scoped>
+/* .goods-item::before,.goods-item::after{
+  content: '';
+  display: block;
+} */
+
  .goods-item {
     padding-bottom: 40px;
     position: relative;

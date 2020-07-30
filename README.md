@@ -1,5 +1,9 @@
 # mushmall
 
+## 相关接口
+```
+相关接口不是真实的，可以加老师微信的coderwhy003获取接口
+```
 ## Project setup
 ```
 npm install
