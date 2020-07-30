@@ -17,7 +17,8 @@ export default {
     display: flex;
     line-height: 44px;
     height: 44px;
-    box-shadow: 0,1px,1px,rgba(73, 73, 73, 0.2);
+    box-shadow: 0 1px 1px rgba(73, 73, 73, 0.2);
+    font-size: 18px;
      /* box-shadow: 0,3px,3px,#888888; */
   }
   .left,.right{
